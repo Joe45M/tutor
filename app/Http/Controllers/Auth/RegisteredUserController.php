@@ -41,6 +41,7 @@ class RegisteredUserController extends Controller
             'type' => 'required',
         ]);
 
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

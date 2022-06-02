@@ -4,12 +4,15 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+            <div class="grid gap-5 grid-cols-4">
+                <div class="lg:col-span-1">
+                    <x-title class="mb-5">Filters</x-title>
+                    <livewire:search-filters></livewire:search-filters>
+                </div>
+                <div class="lg:col-span-3">
+                    <livewire:search-results></livewire:search-results>
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
     ];
 
     /**
@@ -55,5 +56,10 @@ class User extends Authenticatable
     public function subjects()
     {
         return $this->morphToMany(Subject::class, 'subjectable');
+    }
+
+
+    public function scopeTutor($query) {
+        return $query->where('type', 'tutor');
     }
 }
