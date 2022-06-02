@@ -45,6 +45,20 @@
                                 name="password_confirmation" required />
             </div>
 
+            <p class="text-xl mt-4">Are you a Tutor or student?</p>
+
+
+            <div class="mt-2 flex">
+                <input type="radio" class="mr-3" id="tutor" name="type" value="tutor">
+                <x-label for="tutor" :value="__('Tutor')" />
+
+            </div>
+
+            <div class="mt-2 flex">
+                <input type="radio" class="mr-3" id="student" name="type" value="student">
+                <x-label for="student" :value="__('student')" />
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
