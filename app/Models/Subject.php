@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
+
+    public function users()
+    {
+        return $this->morphedByMany(User::class, 'subjectable');
+    }
+
+
 }

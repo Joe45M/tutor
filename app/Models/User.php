@@ -41,4 +41,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function stages()
+    {
+        return $this->morphToMany(Stage::class, 'stageable');
+    }
+
+    public function virtuals()
+    {
+        return $this->morphToMany(Virtuality::class, 'virtualityable');
+    }
+
+    public function subjects()
+    {
+        return $this->morphToMany(Subject::class, 'subjectable');
+    }
 }
