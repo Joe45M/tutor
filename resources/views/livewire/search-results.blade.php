@@ -66,7 +66,7 @@
                     @endif
                 </div>
                 <div class="flex justify-end">
-                    <x-button>Contact</x-button>
+                    <x-button wire:click="modal({{ $result->id }})">Contact</x-button>
                 </div>
             </x-card>
         @endforeach

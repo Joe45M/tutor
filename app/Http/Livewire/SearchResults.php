@@ -39,4 +39,8 @@ class SearchResults extends Component
 
         $this->results = $users->get();
     }
+
+    public function modal(User $user) {
+        $this->emit('contactModal', $user);
+    }
 }

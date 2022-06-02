@@ -16,5 +16,6 @@
                 </div>
             </div>
         </div>
+        <livewire:search-contact></livewire:search-contact>
     </div>
 </x-app-layout>
