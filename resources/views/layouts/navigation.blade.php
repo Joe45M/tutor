@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('commitment.index')" :active="request()->routeIs('commitment.index')">
+                        {{ __('My commitments') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -38,8 +41,12 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
+                            <x-dropdown-link :href="route('settings')">
+                                {{ __('Settings & billing') }}
+                            </x-dropdown-link>
+
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                             onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -66,6 +73,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('commitment.index')" :active="request()->routeIs('commitment.index')">
+                {{ __('My commitments') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -76,6 +86,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('settings')" :active="request()->routeIs('settings')">
+                    {{ __('Settings & billing') }}
+                </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

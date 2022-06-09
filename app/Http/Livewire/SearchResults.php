@@ -13,27 +13,36 @@ class SearchResults extends Component
 
     public function render()
     {
+
+        // prepopulate some results
+        if (!$this->results) {
+            $this->search([]);
+        }
+
         return view('livewire.search-results');
     }
 
     public function search(array $filters) {
+
+        $filters = collect($filters);
+
         $users = User::query()->tutor();
 
-        if ($filters['stages']) {
+        if ($filters->get('stages')) {
             $users->whereHas('stages', function ($q) use ($filters) {
-                $q->whereIn('stages.id', $filters['stages']);
+                $q->whereIn('stages.id', $filters->get('stages'));
             });
         }
 
-        if ($filters['subjects']) {
+        if ($filters->get('subjects')) {
             $users->whereHas('subjects', function ($q) use ($filters) {
-                $q->whereIn('subjects.id', $filters['subjects']);
+                $q->whereIn('subjects.id', $filters->get('subjects'));
             });
         }
 
-        if ($filters['virtuality']) {
+        if ($filters->get('virtuality')) {
             $users->whereHas('virtuals', function ($q) use ($filters) {
-                $q->whereIn('virtualities.id', $filters['virtuality']);
+                $q->whereIn('virtualities.id', $filters->get('virtuality'));
             });
         }
 

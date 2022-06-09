@@ -23,4 +23,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/onboarding', \App\Http\Livewire\Onboarding::class)->name('onboarding');
 
+Route::get('/commitment/{commitment}', \App\Http\Livewire\Commitment::class)->name('commitment.show')->middleware('auth');
+Route::get('/commitment/', \App\Http\Livewire\CommitmentList::class)->name('commitment.index')->middleware('auth');
+
+Route::get('/settings', \App\Http\Livewire\ProfileSettings::class)->name('settings')->middleware('auth');
+
 require __DIR__.'/auth.php';

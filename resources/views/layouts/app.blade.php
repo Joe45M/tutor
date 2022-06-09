@@ -30,11 +30,12 @@
 
             <!-- Page Content -->
             <main>
-                <div class="container mx-auto py-3">
+                <div class="container mx-auto py-5">
                     {{ $slot }}
                 </div>
             </main>
         </div>
         @livewireScripts
+        <script src="https://js.stripe.com/v3/"></script>
     </body>
 </html>
